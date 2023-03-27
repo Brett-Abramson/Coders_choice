@@ -4,6 +4,9 @@ const Record = (props) => {
   return (
     <>
       <div>
+        <img src={props.record.recordArtwork} alt={props.record.name + "'s " + "album cover"} width="250" />
+      </div>
+      <div>
         <ul>
           <li>{props.record.recordName}</li>
           <li>{props.record.artistName}</li>
