@@ -22,7 +22,7 @@ app.get("/records", (req, res) => {
 
 app.put("/records/:id", (req,res) => {
   Records.findByIdAndUpdate(req.params.id, req.body, {new: true})
-  .then((updatedRecord)=>res.json(updatedRecord))
+  .then((updatedRecord)=>res.json(updatedRecord)) 
 })
 
 app.post("/records", (req, res) => {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Add = (props) => {
-  const [tracks, setTracks] = useState({
+  const [track, setTrack] = useState({
     trackName: "",
     trackLength: Number,
   });
@@ -10,14 +10,14 @@ const Add = (props) => {
     recordName: "",
     artistName: "",
     releaseYear: Number,
-    tracks: [tracks],
+    tracks: [track],
   });
 
   const handleChange = (event) => {
     setRecord({ ...record, [event.target.name]: event.target.value });
   };
   const handleTrackChange = (event) => {
-    setTracks({ ...tracks, [event.target.name]: event.target.value });
+    setTrack({ ...track, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
