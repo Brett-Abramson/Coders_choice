@@ -37,6 +37,9 @@ const Add = (props) => {
           <label htmlFor="releaseYear">Release Year:</label>
           <input type="number" name="releaseYear" onChange={handleChange} />
           <br />
+          <label htmlFor="recordArtwork">Record Artwork:</label>
+          <input type="text" name="recordArtwork" onChange={handleChange} />
+          <br />
           <input type="submit" />
         </form>
         <label htmlFor="trackName">Track Name:</label>
