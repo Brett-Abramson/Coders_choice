@@ -37,6 +37,13 @@ const Edit = (props) => {
           onChange={handleChange}
           value={record.releaseYear}
         />
+        <label htmlFor="recordArtwork">Record Artwork</label>
+        <input
+          type="text"
+          name="recordArtwork"
+          onChange={handleChange}
+          value={record.recordArtwork}
+        />
         <input type="submit" />
       </form>
       <button

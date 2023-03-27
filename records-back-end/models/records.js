@@ -10,6 +10,7 @@ const recordSchema = new mongoose.Schema({
       TrackLength: Number,
     },
   ],
+  recordArtwork: String,
 });
 
 const Records = mongoose.model("Records", recordSchema);
