@@ -9,6 +9,14 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+app.put("/record/:id", (req,res) => {
+  Record.findByIdAndDelete(req.params.id)
+  .then((deletedRecord) => {
+    res.json(deletedRecord)
+  })
+})
+
+
 app.get("/records", (req, res) => {
   Records.find({})
     .sort({ name: 1 })
