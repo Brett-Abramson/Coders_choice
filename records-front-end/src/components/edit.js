@@ -14,6 +14,7 @@ const Edit = (props) => {
 
   return (
     <>
+    <h2>Edit Form</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="recordName">Record Name</label>
         <input
