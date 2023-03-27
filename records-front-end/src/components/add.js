@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Add = (props) => {
   const [record, setRecord] = useState({
-    name: "",
+    recordName: "",
     artistName: "",
     releaseYear: Number,
     tracks: [
