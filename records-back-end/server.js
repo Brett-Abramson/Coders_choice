@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.put("/record/:id", (req,res) => {
+app.delete("/record/:id", (req,res) => {
   Record.findByIdAndDelete(req.params.id)
   .then((deletedRecord) => {
     res.json(deletedRecord)
@@ -23,6 +23,11 @@ app.get("/records", (req, res) => {
       res.json(foundRecords);
     });
 });
+
+app.put("/records/:id", (req,res) => {
+  Records.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((updatedRecord)=>res.json(updatedRecord))
+})
 
 app.listen(PORT, () => {
   console.log("Hello Seattle, I'm listening...");
