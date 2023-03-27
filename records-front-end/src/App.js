@@ -1,11 +1,10 @@
-
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Add from "./components/add";
 
 const App = () => {
-  const [record, setRecord] =useState({})
+  const [records, setRecords] = useState({});
   const getRecords = () => {
     axios.get("http://localhost:3000/records").then((response) => {
       setRecords(response.data);
@@ -18,21 +17,21 @@ const App = () => {
       setRecords(newRecords);
     });
   };
-  
+
   const handleDelete = (deletedRecord) => {
-    axios.delete("http://localhost:3000/record/" + deletedRecord._id)
-    .then((response) => {
-      let newRecord = record.filter((record) => {
-        return record._id !== deletedRecord._id
-      })
-      setRecord(newRecord)
-    })
-  }
+    axios
+      .delete("http://localhost:3000/record/" + deletedRecord._id)
+      .then((response) => {
+        let newRecords = records.filter((record) => {
+          return record._id !== deletedRecord._id;
+        });
+        setRecords(newRecords);
+      });
+  };
 
   useEffect(() => {
     getRecords();
   }, []);
-
 
   return (
     <>
@@ -40,8 +39,14 @@ const App = () => {
 
       <Add handleCreate={handleCreate} />
 
-      <button onClick={()=>{handleDelete(record)}}>X</button>
-      </>
+      <button
+        onClick={() => {
+          handleDelete(records);
+        }}
+      >
+        X
+      </button>
+    </>
   );
 };
 
