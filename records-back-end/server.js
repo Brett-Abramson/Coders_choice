@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
 });
 
 app.put("/record/:id", (req,res) => {
-  Record.findByIdAndRemove(req.params.id)
+  Record.findByIdAndDelete(req.params.id)
   .then((deletedRecord) => {
     res.json(deletedRecord)
   })
