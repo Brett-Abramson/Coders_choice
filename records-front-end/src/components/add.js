@@ -41,6 +41,7 @@ const Add = (props) => {
           <label htmlFor="trackLength">Track Length:</label>
           <input type="number" name="trackLength" onChange={handleChange} />
           <br />
+          <input type="submit" />
         </form>
       </div>
     </>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Add from "./components/add";
 
-const App = () => {
+function App() {
   const [records, setRecords] = useState({});
   const getRecords = () => {
     axios.get("http://localhost:3000/records").then((response) => {
@@ -48,6 +48,6 @@ const App = () => {
       </button>
     </>
   );
-};
+}
 
 export default App;
