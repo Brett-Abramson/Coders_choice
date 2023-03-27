@@ -43,7 +43,9 @@ const Edit = (props) => {
         onClick={() => {
           props.handleDelete(record);
         }}
-      ></button>
+      >
+        Delete this Record
+      </button>
     </>
   );
 };

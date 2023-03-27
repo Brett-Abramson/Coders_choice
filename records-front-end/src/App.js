@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Add from "./components/add";
 import Edit from "./components/edit";
+import Record from "./components/record";
 
 const App = () => {
-  const [records, setRecords] = useState({});
+  const [records, setRecords] = useState([]);
 
   const getRecords = () => {
     axios.get("http://localhost:3000/records").then((response) => {
@@ -24,7 +25,7 @@ const App = () => {
       .delete("http://localhost:3000/records/" + deletedRecord._id)
       .then((response) => {
         let newRecords = records.filter((record) => {
-          return records._id !== deletedRecord._id;
+          return record._id !== deletedRecord._id;
         });
         setRecords(newRecords);
       });
@@ -48,13 +49,21 @@ const App = () => {
   return (
     <>
       <h1> Record Collection</h1>
-
-      <Edit
-        records={records}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-      />
-      <Add handleCreate={handleCreate} />
+      {records.map((record) => {
+        return (
+          <>
+            <Record record={record} />
+            <Edit
+              record={record}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+            />
+          </>
+        );
+      })}
+      <div>
+        <Add handleCreate={handleCreate} />
+      </div>
     </>
   );
 };
