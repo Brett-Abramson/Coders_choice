@@ -10,6 +10,7 @@ const Add = (props) => {
     recordName: "",
     artistName: "",
     releaseYear: Number,
+    recordArtwork: "",
     tracks: [track],
   });
 
