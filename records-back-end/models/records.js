@@ -7,7 +7,7 @@ const recordSchema = new mongoose.Schema({
   tracks: [
     {
       trackName: String,
-      TrackLength: Number,
+      trackLength: Number,
     },
   ],
   recordArtwork: String,

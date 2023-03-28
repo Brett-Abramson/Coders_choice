@@ -11,14 +11,27 @@ const Add = (props) => {
     artistName: "",
     releaseYear: Number,
     recordArtwork: "",
-    tracks: [track],
+    tracks: [{ track }],
   });
 
   const handleChange = (event) => {
-    setRecord({ ...record, [event.target.name]: event.target.value });
+    setRecord({
+      ...record,
+      [event.target.name]: event.target.value,
+      tracks: track,
+    });
   };
   const handleTrackChange = (event) => {
-    setTrack({ ...track, [event.target.name]: event.target.value });
+    setRecord({
+      ...record,
+      tracks: { ...record.tracks, trackName: event.target.value },
+    });
+  };
+  const handleTrackLengthChange = (event) => {
+    setRecord({
+      ...record,
+      tracks: { ...record.tracks, trackLength: event.target.value },
+    });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,13 +54,18 @@ const Add = (props) => {
           <label htmlFor="recordArtwork">Record Artwork:</label>
           <input type="text" name="recordArtwork" onChange={handleChange} />
           <br />
+
+          <label htmlFor="trackName">Track Name:</label>
+          <input type="text" name="trackName" onChange={handleTrackChange} />
+          <br />
+          <label htmlFor="trackLength">Track Length:</label>
+          <input
+            type="number"
+            name="trackLength"
+            onChange={handleTrackLengthChange}
+          />
           <input type="submit" />
         </form>
-        <label htmlFor="trackName">Track Name:</label>
-        <input type="text" name="trackName" onChange={handleTrackChange} />
-        <br />
-        <label htmlFor="trackLength">Track Length:</label>
-        <input type="number" name="trackLength" onChange={handleTrackChange} />
       </div>
     </>
   );
